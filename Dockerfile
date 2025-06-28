@@ -1,7 +1,8 @@
-FROM ollama/ollama:latest
-
-RUN ollama pull llama3
+FROM ollama/ollama
 
 EXPOSE 11434
 
-CMD ["serve"]
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
