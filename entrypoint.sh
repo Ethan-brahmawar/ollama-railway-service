@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # Pull the model at runtime
-ollama pull llama3
+echo "pulling llama3 model"
+ollama pull llama3 || exit 1
 
 # Then start the server
-ollama serve
+echo "starting ollama server"
+exec ollama serve
