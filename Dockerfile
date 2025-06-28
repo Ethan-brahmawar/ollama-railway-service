@@ -1,5 +1,5 @@
-FROM ollama/ollama
+FROM ollama/ollama:latest
 
 EXPOSE 11434
 
-CMD ["serve"]
+CMD ["ollama", "serve"]
