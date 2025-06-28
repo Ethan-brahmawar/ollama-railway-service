@@ -1,8 +1,8 @@
 FROM ollama/ollama
 
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+# Pull the llama3 model at build time
+RUN ollama pull llama3
 
 EXPOSE 11434
 
-ENTRYPOINT ["/entrypoint.sh"]
+CMD ["ollama", "serve"]
